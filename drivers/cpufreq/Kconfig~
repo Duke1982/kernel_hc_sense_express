@@ -70,15 +70,13 @@ config CPU_FREQ_DEFAULT_GOV_PERFORMANCE
 	  the CPU.
 
 <<<<<<< HEAD
+=======
 config CPU_FREQ_DEFAULT_GOV_SMARTASS
 	bool "smartass"
 	select CPU_FREQ_GOV_SMARTASS
 	select CPU_FREQ_GOV_PERFORMANCE
 	help
 	 Use the CPUFreq governor 'smartass' as default.
-=======
-
-
 
 config CPU_FREQ_DEFAULT_GOV_SMOOTHASS
 	bool "smoothass"
@@ -86,9 +84,9 @@ config CPU_FREQ_DEFAULT_GOV_SMOOTHASS
 	select CPU_FREQ_GOV_PERFORMANCE
 	help
 	 Use the CPUFreq governor 'smoothass' as default.
->>>>>>> 82975e6... Add: a second optional smartass CPU governor "smoothass"
 	
 
+>>>>>>> 53a45ff... Add: a second optional smartass CPU governor "smoothass"
 config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	bool "powersave"
 	depends on EMBEDDED
@@ -154,6 +152,7 @@ config CPU_FREQ_GOV_PERFORMANCE
 	  If in doubt, say Y.
 
 <<<<<<< HEAD
+=======
 config CPU_FREQ_GOV_SMARTASS
 	tristate "'smartass' cpufreq governor"
 	depends on CPU_FREQ
@@ -161,8 +160,6 @@ config CPU_FREQ_GOV_SMARTASS
 	smartass' - a "smart" optimized governor!
  	
 	If in doubt, say N.
-
-=======
 
 config CPU_FREQ_GOV_SMOOTHASS
 	tristate "'smoothass' cpufreq governor"
@@ -172,8 +169,7 @@ config CPU_FREQ_GOV_SMOOTHASS
  	
 	If in doubt, say N.
 
-
->>>>>>> 82975e6... Add: a second optional smartass CPU governor "smoothass"
+>>>>>>> 53a45ff... Add: a second optional smartass CPU governor "smoothass"
 config CPU_FREQ_GOV_POWERSAVE
 	tristate "'powersave' governor"
 	help
