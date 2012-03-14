@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir out
+./split_bootimg.pl boot.img
+cd out
+
+mkdir ramdisk
+cd ramdisk
+gunzip -c ../../boot.img-ramdisk.gz | cpio -i

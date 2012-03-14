@@ -1,0 +1,5 @@
+mount("ext4", "EMMC", "/dev/block/mmcblk0p26", "/system");
+package_extract_file("boot.img", "/tmp/boot.img");
+write_raw_image("/tmp/boot.img", "boot");
+delete("/tmp/boot.img");
+unmount("/system");
