@@ -1754,6 +1754,12 @@ config ACPUCLOCK_LIMIT_768MHZ
 	help
 		Support to limit the CPU frequency at 768MHz.
 
+config ACPUCLOCK_OVERCLOCKING
+ 	bool "Enable support for CPU overclocking"
+	default n
+	depends on CPU_FREQ && !PERFLOCK
+	depends on ARCH_MSM7X30
+
 config HTC_SMEM_MSMC1C2_DEBUG
 	bool "MSMC1/MSMC2 shared memory debug"
 	default n
@@ -1883,6 +1889,14 @@ config MSM7X30_DDR2
 	bool "Request max ebi1 at max cpu frequency"
 	depends on ARCH_MSM7X30
 	default n
+
+config STOCK_VOLTAGE
+	bool "HTC Stock Voltages"
+	default n
+		depends on CPU_FREQ && !PERFLOCK
+		depends on ARCH_QSD8X50 || ARCH_MSM7X30 || ARCH_MSM7X00A || ARCH_MSM7227 || ARCH_MSM7225
+	help
+		Enable HTC stock voltages.
 
 config TIMING_PCLK_53M
 	bool "Set PCLK to 53.5MHz"

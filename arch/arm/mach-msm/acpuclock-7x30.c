@@ -93,35 +93,111 @@ static struct clock_state drv_state = { 0 };
 static struct cpufreq_frequency_table freq_table[] = {
 	{ 0, 245760 },
 	{ 1, 368640 },
-	{ 2, 768000 },
-#ifndef CONFIG_ACPUCLOCK_LIMIT_768MHZ
-	{ 3, 806400 },
-	{ 4, CPUFREQ_TABLE_END },
-#else
-	{ 3, CPUFREQ_TABLE_END },
-#endif
+	{ 2, 576000 },
+	{ 3, 768000 },
+	{ 4, 902400 },
+	{ 5, 1017600 },
+	{ 6, 1113600 },
+	{ 7, 1209600 },
+	{ 8, 1305600 },
+	{ 9, 1401600 },
+	{ 10, 1459200 },
+	{ 11, 1516800 },
+	{ 12, 1555200 },
+	{ 13, 1612800 },
+	{ 14, 1651200 },
+	{ 15, 1708800 },
+	{ 16, 1747200 },
+	{ 17, 1804800 },
+	{ 18, 1843200 },
+	{ 19, CPUFREQ_TABLE_END },
 };
 
 /* Use negative numbers for sources that can't be enabled/disabled */
 #define SRC_LPXO (-2)
 #define SRC_AXI  (-1)
+//static struct clkctl_acpu_speed acpu_freq_tbl[] = {
+//	{ 24576,  SRC_LPXO, 0, 0,  30720000,  1000, VDD_RAW(1000) },
+//	{ 61440,  PLL_3,    5, 11, 61440000,  1000, VDD_RAW(1000) },
+//	{ 122880, PLL_3,    5, 5,  61440000,  1000, VDD_RAW(1000) },
+//	{ 184320, PLL_3,    5, 4,  61440000,  1000, VDD_RAW(1000) },
+//	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 1000, VDD_RAW(1000) },
+//	{ 245760, PLL_3,    5, 2,  61440000,  1000, VDD_RAW(1000) },
+//	{ 368640, PLL_3,    5, 1,  122800000, 1050, VDD_RAW(1050) },
+//	{ 768000, PLL_1,    2, 0,  153600000, 1100, VDD_RAW(1100) },
+//#ifndef CONFIG_ACPUCLOCK_LIMIT_768MHZ
+//	/* ACPU >= 806.4MHz requires MSMC1 @ 1.2V. Voting for
+//	 * AXI @ 192MHz accomplishes this implicitly. 806.4MHz
+//	 * is updated to 1024MHz at runtime for QSD8x55. */
+//	{ 806400, PLL_2,    3, 0,  192000000, 1100, VDD_RAW(1100) },
+//#endif
+//	{ 0 }
+//};
+
+#ifndef CONFIG_STOCK_VOLTAGE
 static struct clkctl_acpu_speed acpu_freq_tbl[] = {
-	{ 24576,  SRC_LPXO, 0, 0,  30720000,  1000, VDD_RAW(1000) },
-	{ 61440,  PLL_3,    5, 11, 61440000,  1000, VDD_RAW(1000) },
-	{ 122880, PLL_3,    5, 5,  61440000,  1000, VDD_RAW(1000) },
-	{ 184320, PLL_3,    5, 4,  61440000,  1000, VDD_RAW(1000) },
-	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 1000, VDD_RAW(1000) },
-	{ 245760, PLL_3,    5, 2,  61440000,  1000, VDD_RAW(1000) },
-	{ 368640, PLL_3,    5, 1,  122800000, 1050, VDD_RAW(1050) },
-	{ 768000, PLL_1,    2, 0,  153600000, 1100, VDD_RAW(1100) },
-#ifndef CONFIG_ACPUCLOCK_LIMIT_768MHZ
+	{ 24576, SRC_LPXO, 0, 0, 30720000, 900, VDD_RAW(900) },
+	{ 61440, PLL_3, 5, 11, 61440000, 900, VDD_RAW(900) },
+	{ 122880, PLL_3, 5, 5, 61440000, 900, VDD_RAW(900) },
+	{ 184320, PLL_3, 5, 4, 61440000, 900, VDD_RAW(900) },
+	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 900, VDD_RAW(900) },
+	{ 245760, PLL_3, 5, 2, 61440000, 900, VDD_RAW(900) },
+	{ 368640, PLL_3, 5, 1, 122800000, 900, VDD_RAW(900) },
+	{ 576000, PLL_3, 5, 1, 192000000, 975, VDD_RAW(975) },
+	{ 768000, PLL_1, 2, 0, 153600000, 1025, VDD_RAW(1025) },
 	/* ACPU >= 806.4MHz requires MSMC1 @ 1.2V. Voting for
-	 * AXI @ 192MHz accomplishes this implicitly. 806.4MHz
-	 * is updated to 1024MHz at runtime for QSD8x55. */
-	{ 806400, PLL_2,    3, 0,  192000000, 1100, VDD_RAW(1100) },
-#endif
+	* AXI @ 192MHz accomplishes this implicitly. 806.4MHz
+	* is updated to 1024MHz at runtime for QSD8x55. */
+	{ 902400, PLL_2, 3, 0, 192000000, 1050, VDD_RAW(1050) },
+	{ 1017600, PLL_2, 3, 0, 192000000, 1075, VDD_RAW(1075) },
+	{ 1113600, PLL_2, 3, 0, 192000000, 1075, VDD_RAW(1075) },
+	{ 1209600, PLL_2, 3, 0, 192000000, 1100, VDD_RAW(1100) },
+	{ 1305600, PLL_2, 3, 0, 192000000, 1175, VDD_RAW(1175) },
+	{ 1401600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
+	{ 1459200, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
+	{ 1516800, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
+	{ 1555200, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
+	{ 1612800, PLL_2, 3, 0, 192000000, 1300, VDD_RAW(1300) },
+	{ 1651200, PLL_2, 3, 0, 192000000, 1350, VDD_RAW(1350) },
+	{ 1708800, PLL_2, 3, 0, 192000000, 1375, VDD_RAW(1375) },
+	{ 1747200, PLL_2, 3, 0, 192000000, 1400, VDD_RAW(1400) },
+	{ 1804800, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
+	{ 1843200, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
 	{ 0 }
 };
+#else
+static struct clkctl_acpu_speed acpu_freq_tbl[] = {
+	{ 24576, SRC_LPXO, 0, 0, 30720000, 1000, VDD_RAW(1000) },
+	{ 61440, PLL_3, 5, 11, 61440000, 1000, VDD_RAW(1000) },
+	{ 122880, PLL_3, 5, 5, 61440000, 1000, VDD_RAW(1000) },
+	{ 184320, PLL_3, 5, 4, 61440000, 1000, VDD_RAW(1000) },
+	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 1000, VDD_RAW(1000) },
+	{ 245760, PLL_3, 5, 2, 61440000, 1000, VDD_RAW(1000) },
+	{ 368640, PLL_3, 5, 1, 122800000, 1050, VDD_RAW(1050) },
+	{ 576000, PLL_3, 5, 1, 192000000, 1075, VDD_RAW(1075) },
+	{ 768000, PLL_1, 2, 0, 153600000, 1100, VDD_RAW(1100) },
+	/* ACPU >= 806.4MHz requires MSMC1 @ 1.2V. Voting for
+	* AXI @ 192MHz accomplishes this implicitly. 806.4MHz
+	* is updated to 1024MHz at runtime for QSD8x55. */
+	{ 902400, PLL_2, 3, 0, 192000000, 1100, VDD_RAW(1100) },
+	{ 1017600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
+	{ 1113600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
+	{ 1209600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
+	{ 1305600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
+	{ 1401600, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
+	{ 1459200, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
+	{ 1516800, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
+	{ 1555200, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
+	{ 1612800, PLL_2, 3, 0, 192000000, 1350, VDD_RAW(1375) },
+	{ 1651200, PLL_2, 3, 0, 192000000, 1375, VDD_RAW(1375) },
+	{ 1708800, PLL_2, 3, 0, 192000000, 1400, VDD_RAW(1425) },
+	{ 1747200, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
+	{ 1804800, PLL_2, 3, 0, 192000000, 1450, VDD_RAW(1450) },
+	{ 1843200, PLL_2, 3, 0, 192000000, 1450, VDD_RAW(1450) },
+	{ 0 }
+};
+#endif
+
 static unsigned long max_axi_rate;
 
 #define POWER_COLLAPSE_HZ (MAX_AXI_KHZ * 1000)
@@ -210,6 +286,11 @@ static void acpuclk_set_src(const struct clkctl_acpu_speed *s)
 	reg_clkctl |= s->acpu_src_sel << (4 + 8 * src_sel);
 	reg_clkctl |= s->acpu_src_div << (0 + 8 * src_sel);
 	writel(reg_clkctl, SCSS_CLK_CTL_ADDR);
+
+	/* Program PLL2 L val for overclocked speeds. */
+	if(s->src == PLL_2) {
+		writel(s->acpu_clk_khz/19200, PLL2_L_VAL_ADDR);
+	}
 
 	/* Toggle clock source. */
 	reg_clksel ^= 1;
@@ -370,11 +451,11 @@ static unsigned int acpuclk_get_current_vdd(void)
 	unsigned int vdd_mv;
 
 	vdd_raw = msm_spm_get_vdd();
-	for (vdd_mv = 750; vdd_mv <= 1350; vdd_mv += 25)
+	for (vdd_mv = 750; vdd_mv <= 1475; vdd_mv += 25)
 		if (VDD_RAW(vdd_mv) == vdd_raw)
 			break;
 
-	if (vdd_mv > 1350)
+	if (vdd_mv > 1475)
 		return 0;
 
 	return vdd_mv;
@@ -393,7 +474,7 @@ static int acpuclk_update_freq_tbl(unsigned int acpu_khz, unsigned int acpu_vdd)
 		pr_err("%s: acpuclk invalid speed %d\n", __func__, acpu_khz);
 		return -1;
 	}
-	if (acpu_vdd > 1350 || acpu_vdd < 750) {
+	if (acpu_vdd > 1475 || acpu_vdd < 750) {
 		pr_err("%s: acpuclk vdd out of ranage, %d\n",
 			__func__, acpu_vdd);
 		return -2;
@@ -579,7 +660,7 @@ void __init msm_acpu_clock_init(struct msm_acpu_clock_platform_data *clkdata)
 	drv_state.wfi_ramp_down = 1;
 	drv_state.pwrc_ramp_down = 1;
 #ifndef CONFIG_ACPUCLOCK_LIMIT_768MHZ
-	pll2_fixup();
+//	pll2_fixup();
 #endif
 	acpuclk_init();
 	lpj_init();
