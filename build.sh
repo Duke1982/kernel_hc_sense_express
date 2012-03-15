@@ -42,7 +42,7 @@ cd output/files
 zip -q -r Jmz-Kernel-EXPRESS-$(date +%m%d%y).zip .
 cd ..
 cd ..
-mv output/files/Jmz-Kernel-EXPRESS-$(date +%m%d%y).zip output/Jmz-Kernel-AOSP-$(date +%m%d%y).zip
+mv output/files/Jmz-Kernel-EXPRESS-$(date +%m%d%y).zip output/Jmz-Kernel-EXPRESS-$(date +%m%d%y).zip
 
 echo "****Compile done****"
 echo "****Kernel and modules are in output/****"
