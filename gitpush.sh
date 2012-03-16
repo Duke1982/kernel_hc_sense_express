@@ -1,7 +1,8 @@
 #! /bin/bash
 
+sh clean.sh
 echo -n "What would you like the commit to say?  "
-read -e COMMIT
+read COMMIT
 git add .
 git commit -m $COMMIT
 git push
