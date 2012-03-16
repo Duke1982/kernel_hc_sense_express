@@ -259,25 +259,6 @@ static int msm_cpufreq_pm_event(struct notifier_block *this,
 	}
 }
 
-static ssize_t store_mfreq(struct sysdev_class *class,
-			struct sysdev_class_attribute *attr,
-			const char *buf, size_t count)
-{
-	u64 val;
-
-	if (strict_strtoull(buf, 0, &val) < 0) {
-		printk(KERN_ERR "Failed param conversion\n");
-		return 0;
-	}
-	if (val)
-		override_cpu = 1;
-	else
-		override_cpu = 0;
-	return count;
-}
-
-static SYSDEV_CLASS_ATTR(mfreq, 0200, NULL, store_mfreq);
-
 static struct freq_attr *msm_cpufreq_attr[] = {
 	&cpufreq_freq_attr_scaling_available_freqs,
 	NULL,
