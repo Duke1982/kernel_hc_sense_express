@@ -15,6 +15,9 @@ rm output/files/system/lib/modules/scsi_wait_scan.ko
 rm output/files/system/lib/modules/wimaxuart.ko
 rm output/files/boot.img
 rm output/tools/boot_new.img
+cd output
+rm *.zip
+cd ..
 make clean mrproper
 
 START=$(date +%s)
