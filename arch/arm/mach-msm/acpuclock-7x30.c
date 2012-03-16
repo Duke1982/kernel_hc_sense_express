@@ -136,64 +136,64 @@ static struct cpufreq_frequency_table freq_table[] = {
 
 #ifndef CONFIG_STOCK_VOLTAGE
 static struct clkctl_acpu_speed acpu_freq_tbl[] = {
-	{ 24576, SRC_LPXO, 0, 0, 30720000, 900, VDD_RAW(900) },
-	{ 61440, PLL_3, 5, 11, 61440000, 900, VDD_RAW(900) },
-	{ 122880, PLL_3, 5, 5, 61440000, 900, VDD_RAW(900) },
-	{ 184320, PLL_3, 5, 4, 61440000, 900, VDD_RAW(900) },
+	{ 24576,  SRC_LPXO, 0, 0,  30720000,  900, VDD_RAW(900) },
+	{ 61440,  PLL_3,    5, 11, 61440000,  900, VDD_RAW(900) },
+	{ 122880, PLL_3,    5, 5,  61440000,  900, VDD_RAW(900) },
+	{ 184320, PLL_3,    5, 4,  61440000,  900, VDD_RAW(900) },
 	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 900, VDD_RAW(900) },
-	{ 245760, PLL_3, 5, 2, 61440000, 900, VDD_RAW(900) },
-	{ 368640, PLL_3, 5, 1, 122800000, 900, VDD_RAW(900) },
-	{ 576000, PLL_3, 5, 1, 192000000, 975, VDD_RAW(975) },
-	{ 768000, PLL_1, 2, 0, 153600000, 1025, VDD_RAW(1025) },
+	{ 245760, PLL_3,    5, 2,  61440000,  900, VDD_RAW(900) },
+	{ 368640, PLL_3,    5, 1,  122800000, 900, VDD_RAW(900) },
+	{ 576000, PLL_3,    5, 1,  192000000, 975, VDD_RAW(975) },
+	{ 768000, PLL_1,    2, 0,  153600000, 1025, VDD_RAW(1025) },
 	/* ACPU >= 806.4MHz requires MSMC1 @ 1.2V. Voting for
-	* AXI @ 192MHz accomplishes this implicitly. 806.4MHz
-	* is updated to 1024MHz at runtime for QSD8x55. */
-	{ 902400, PLL_2, 3, 0, 192000000, 1050, VDD_RAW(1050) },
-	{ 1017600, PLL_2, 3, 0, 192000000, 1075, VDD_RAW(1075) },
-	{ 1113600, PLL_2, 3, 0, 192000000, 1075, VDD_RAW(1075) },
-	{ 1209600, PLL_2, 3, 0, 192000000, 1100, VDD_RAW(1100) },
-	{ 1305600, PLL_2, 3, 0, 192000000, 1175, VDD_RAW(1175) },
-	{ 1401600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
-	{ 1459200, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
-	{ 1516800, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
-	{ 1555200, PLL_2, 3, 0, 192000000, 1225, VDD_RAW(1225) },
-	{ 1612800, PLL_2, 3, 0, 192000000, 1300, VDD_RAW(1300) },
-	{ 1651200, PLL_2, 3, 0, 192000000, 1350, VDD_RAW(1350) },
-	{ 1708800, PLL_2, 3, 0, 192000000, 1375, VDD_RAW(1375) },
-	{ 1747200, PLL_2, 3, 0, 192000000, 1400, VDD_RAW(1400) },
-	{ 1804800, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
-	{ 1843200, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
+	 * AXI @ 192MHz accomplishes this implicitly. 806.4MHz
+	 * is updated to 1024MHz at runtime for QSD8x55. */
+	{ 902400, PLL_2,    3, 0,  192000000, 1050, VDD_RAW(1050) },
+	{ 1017600, PLL_2,   3, 0,  192000000, 1075, VDD_RAW(1075) },
+	{ 1113600, PLL_2,   3, 0,  192000000, 1075, VDD_RAW(1075) },
+	{ 1209600, PLL_2,   3, 0,  192000000, 1100, VDD_RAW(1100) },
+	{ 1305600, PLL_2,   3, 0,  192000000, 1175, VDD_RAW(1175) },
+	{ 1401600, PLL_2,   3, 0,  192000000, 1200, VDD_RAW(1200) },
+	{ 1459200, PLL_2,   3, 0,  192000000, 1225, VDD_RAW(1225) },
+	{ 1516800, PLL_2,   3, 0,  192000000, 1225, VDD_RAW(1225) },
+	{ 1555200, PLL_2,   3, 0,  192000000, 1225, VDD_RAW(1225) },
+	{ 1612800, PLL_2,   3, 0,  192000000, 1300, VDD_RAW(1300) },	
+	{ 1651200, PLL_2,   3, 0,  192000000, 1350, VDD_RAW(1350) },	
+	{ 1708800, PLL_2,   3, 0,  192000000, 1375, VDD_RAW(1375) },
+	{ 1747200, PLL_2,   3, 0,  192000000, 1400, VDD_RAW(1400) },
+	{ 1804800, PLL_2,   3, 0,  192000000, 1425, VDD_RAW(1425) },
+	{ 1843200, PLL_2,   3, 0,  192000000, 1425, VDD_RAW(1425) },
 	{ 0 }
 };
 #else
 static struct clkctl_acpu_speed acpu_freq_tbl[] = {
-	{ 24576, SRC_LPXO, 0, 0, 30720000, 1000, VDD_RAW(1000) },
-	{ 61440, PLL_3, 5, 11, 61440000, 1000, VDD_RAW(1000) },
-	{ 122880, PLL_3, 5, 5, 61440000, 1000, VDD_RAW(1000) },
-	{ 184320, PLL_3, 5, 4, 61440000, 1000, VDD_RAW(1000) },
+	{ 24576,  SRC_LPXO, 0, 0,  30720000,  1000, VDD_RAW(1000) },
+	{ 61440,  PLL_3,    5, 11, 61440000,  1000, VDD_RAW(1000) },
+	{ 122880, PLL_3,    5, 5,  61440000,  1000, VDD_RAW(1000) },
+	{ 184320, PLL_3,    5, 4,  61440000,  1000, VDD_RAW(1000) },
 	{ MAX_AXI_KHZ, SRC_AXI, 1, 0, 61440000, 1000, VDD_RAW(1000) },
-	{ 245760, PLL_3, 5, 2, 61440000, 1000, VDD_RAW(1000) },
-	{ 368640, PLL_3, 5, 1, 122800000, 1050, VDD_RAW(1050) },
-	{ 576000, PLL_3, 5, 1, 192000000, 1075, VDD_RAW(1075) },
-	{ 768000, PLL_1, 2, 0, 153600000, 1100, VDD_RAW(1100) },
+	{ 245760, PLL_3,    5, 2,  61440000,  1000, VDD_RAW(1000) },
+	{ 368640, PLL_3,    5, 1,  122800000, 1050, VDD_RAW(1050) },
+	{ 576000, PLL_3,    5, 1,  192000000, 1075, VDD_RAW(1075) },
+	{ 768000, PLL_1,    2, 0,  153600000, 1100, VDD_RAW(1100) },
 	/* ACPU >= 806.4MHz requires MSMC1 @ 1.2V. Voting for
-	* AXI @ 192MHz accomplishes this implicitly. 806.4MHz
-	* is updated to 1024MHz at runtime for QSD8x55. */
-	{ 902400, PLL_2, 3, 0, 192000000, 1100, VDD_RAW(1100) },
-	{ 1017600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
-	{ 1113600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
-	{ 1209600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
-	{ 1305600, PLL_2, 3, 0, 192000000, 1200, VDD_RAW(1200) },
-	{ 1401600, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
-	{ 1459200, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
-	{ 1516800, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
-	{ 1555200, PLL_2, 3, 0, 192000000, 1250, VDD_RAW(1250) },
-	{ 1612800, PLL_2, 3, 0, 192000000, 1350, VDD_RAW(1375) },
-	{ 1651200, PLL_2, 3, 0, 192000000, 1375, VDD_RAW(1375) },
-	{ 1708800, PLL_2, 3, 0, 192000000, 1400, VDD_RAW(1425) },
-	{ 1747200, PLL_2, 3, 0, 192000000, 1425, VDD_RAW(1425) },
-	{ 1804800, PLL_2, 3, 0, 192000000, 1450, VDD_RAW(1450) },
-	{ 1843200, PLL_2, 3, 0, 192000000, 1450, VDD_RAW(1450) },
+	 * AXI @ 192MHz accomplishes this implicitly. 806.4MHz
+	 * is updated to 1024MHz at runtime for QSD8x55. */
+	{ 902400, PLL_2,    3, 0,  192000000, 1100, VDD_RAW(1100) },
+	{ 1017600, PLL_2,   3, 0,  192000000, 1200, VDD_RAW(1200) },
+	{ 1113600, PLL_2,   3, 0,  192000000, 1200, VDD_RAW(1200) },
+	{ 1209600, PLL_2,   3, 0,  192000000, 1200, VDD_RAW(1200) },
+	{ 1305600, PLL_2,   3, 0,  192000000, 1200, VDD_RAW(1200) },
+	{ 1401600, PLL_2,   3, 0,  192000000, 1250, VDD_RAW(1250) },
+	{ 1459200, PLL_2,   3, 0,  192000000, 1250, VDD_RAW(1250) },
+	{ 1516800, PLL_2,   3, 0,  192000000, 1250, VDD_RAW(1250) },
+	{ 1555200, PLL_2,   3, 0,  192000000, 1250, VDD_RAW(1250) },
+	{ 1612800, PLL_2,   3, 0,  192000000, 1350, VDD_RAW(1375) },	
+	{ 1651200, PLL_2,   3, 0,  192000000, 1375, VDD_RAW(1375) },	
+	{ 1708800, PLL_2,   3, 0,  192000000, 1400, VDD_RAW(1425) },
+	{ 1747200, PLL_2,   3, 0,  192000000, 1425, VDD_RAW(1425) },
+	{ 1804800, PLL_2,   3, 0,  192000000, 1450, VDD_RAW(1450) },
+	{ 1843200, PLL_2,   3, 0,  192000000, 1450, VDD_RAW(1450) },
 	{ 0 }
 };
 #endif
@@ -488,10 +488,10 @@ static int acpuclk_update_freq_tbl(unsigned int acpu_khz, unsigned int acpu_vdd)
 	return 0;
 }
 
-static struct clkctl_acpu_speed * acpuclk_get_freq_tbl(void)
-{
-	return acpu_freq_tbl;
-}
+//static struct clkctl_acpu_speed * acpuclk_get_freq_tbl(void)
+//{
+//	return acpu_freq_tbl;
+//}
 
 static struct acpuclock_debug_dev acpu_debug_7x30 = {
 	.name = "acpu-7x30",
@@ -501,7 +501,7 @@ static struct acpuclock_debug_dev acpu_debug_7x30 = {
 	.get_pwrc_ramp_down = acpuclk_get_pwrc_ramp_down,
 	.get_current_vdd = acpuclk_get_current_vdd,
 	.update_freq_tbl = acpuclk_update_freq_tbl,
-	.get_freq_tbl = acpuclk_get_freq_tbl,
+//	.get_freq_tbl = acpuclk_get_freq_tbl,
 };
 
 /*----------------------------------------------------------------------------
