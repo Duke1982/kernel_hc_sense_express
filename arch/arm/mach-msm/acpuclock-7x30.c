@@ -65,7 +65,7 @@
 /* mv = (750mV + (raw * 25mV)) * (2 - VREF_SEL) */
 #define VDD_RAW(mv) (((MV(mv) / V_STEP) - 30) | VREG_DATA)
 
-#define MAX_AXI_KHZ 192000
+#define MAX_AXI_KHZ 199000
 
 struct clock_state {
 	struct clkctl_acpu_speed	*current_speed;

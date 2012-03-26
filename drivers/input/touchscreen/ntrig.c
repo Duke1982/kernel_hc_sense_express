@@ -59,7 +59,7 @@ char spiAnalyRx[NTRIG_PACKET_SIZE], spiRxbuf[NTRIG_PACKET_SIZE];
 static const char NTRIGNAME[] = "Ntrig";
 static short anpidx;
 static int TSLog, count_isr_from_resume, cResetESD, gFingerMap[ABS_MT_TRACKING_ID_MAX];
-static int event_google_enable = 0;
+static int event_google_enable = 1;
 u32 g_lastcht = 0, g_missRep = 0;
 static uint32_t ntg_fwver;
 

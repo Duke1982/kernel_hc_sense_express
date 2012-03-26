@@ -8,6 +8,7 @@ sh clean.sh
 START=$(date +%s)
 echo "****Building****"
 
+export USE_CCACHE = 1
 make express_defconfig
 make -j16
 
